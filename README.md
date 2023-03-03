@@ -1,4 +1,4 @@
 # picomedsyntax
 PICO pubmed syntax visualizer
 
-Page: https://tedgrm.github.io/medsyntax
+Page: https://tedgrm.github.io/picomedsyntax
