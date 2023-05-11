@@ -58,8 +58,8 @@
     </button>
   </div>
 
-    <!-- The button used to copy the link -->
-    <!-- <input type="text" value="Hello World" id="myLinkInput" hidden="hidden">
+  <!-- The button used to copy the link -->
+  <!-- <input type="text" value="Hello World" id="myLinkInput" hidden="hidden">
 
     <div class="tooltip">
       <button id="copy-link-button" onclick="copyLinkFunction()" onmouseout="outLinkFunc()">
@@ -67,12 +67,12 @@
         Copy link
       </button>
     </div>-->
-  
+
   <button type="submit" hidden="hidden">
     <a id="download-button-hidden" style="text-decoration: none;color: inherit;"
       onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)"
       href="#" download="medsyntax.html">Download Hidden</a>
-  </button> 
+  </button>
   <button id="download-button" onclick="downloadFunction()">Download</button>
 
   <script>
@@ -138,10 +138,15 @@
 
 
     function demoClickFunction() {
-      $("#query-input1").val($("#demo2").text());
-      $("#query-input2").val($("#demo2").text());
-      $("#query-input3").val($("#demo2").text());
-      $("#query-input4").val($("#demo2").text());
+      // $("#query-input1").val($("#demo2").text());
+      // $("#query-input2").val($("#demo2").text());
+      // $("#query-input3").val($("#demo2").text());
+      // $("#query-input4").val($("#demo2").text());
+
+      $("#query-input1").val('handover OR "Patient Handoff"[Mesh] OR handoff OR "patient transfer"');
+      $("#query-input2").val('SBAR OR ISBAR OR SBAR-R OR ISBARR OR ISOBAR');
+      $("#query-input3").val('');
+      $("#query-input4").val('teamwork OR  "inter-professional communication" OR "communication"[Mesh] OR communication OR "Interdisciplinary Communication"[Mesh] OR "Patient Safety"[Mesh] OR "patient safety" OR "safety culture"');
 
       syntaxCheck("query-input1", "medsyntax-target1");
       syntaxCheck("query-input2", "medsyntax-target2");
@@ -174,7 +179,7 @@
       document.getElementById("query-input3").hidden = false;
       document.getElementById("query-input4").hidden = false;
       document.getElementById("download-button").hidden = false;
-   
+
     }
 
     var warningBracketCloseElementId = "warning-bracket-close";
@@ -302,7 +307,7 @@
       str = str.replace(new RegExp(specialColon, 'gi'), ':'); //un-special-fy
       str = str.replace(new RegExp(special, 'gi'), ' '); //un-special-fy
       str = str.replace('class=embase', 'class=\"embase\"'); //un-special-fy embase
-      str = str.replace('</div>.','</div><div class="embase">.</div>'); //embas "." cleanup
+      str = str.replace('</div>.', '</div><div class="embase">.</div>'); //embas "." cleanup
       str = str.replace('class=quote-term', 'class=\"quote-term\"'); //un-special-fy quote
 
       // make stray words elements
@@ -471,6 +476,7 @@
     body {
       background-color: lightgrey;
       font: icon;
+      margin: 20px;
     }
 
     #demo2 {
@@ -487,6 +493,15 @@
     #full-string {
       background-color: antiquewhite;
       /* border-radius: 2px; */
+    }
+
+    #medsyntax {
+      margin-top: 10px;
+      padding: 10px;
+      border-color: whitesmoke;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 5px;
     }
 
     .query-input {
@@ -580,31 +595,19 @@
       font: icon;
     }
 
-    #medsyntax-target div.quote-term,
-    #medsyntax-target1 div.quote-term,
-    #medsyntax-target2 div.quote-term,
-    #medsyntax-target3 div.quote-term,
-    #medsyntax-target4 div.quote-term {
+    .medsyntax-target div.quote-term {
       margin-bottom: 3px;
       background: lightgray;
     }
 
-    #medsyntax-target div.boolean,
-    #medsyntax-target1 div.boolean,
-    #medsyntax-target2 div.boolean,
-    #medsyntax-target3 div.boolean,
-    #medsyntax-target4 div.boolean {
+    .medsyntax-target div.boolean {
       color: darkblue;
       margin-left: 5px;
       margin-right: 5px;
       font-weight: bold;
     }
 
-    #medsyntax-target div.brackets,
-    #medsyntax-target1 div.brackets,
-    #medsyntax-target2 div.brackets,
-    #medsyntax-target3 div.brackets,
-    #medsyntax-target4 div.brackets {
+    .medsyntax-target div.brackets {
       padding: 3px;
       border-width: 3px;
       border-radius: 5px;
@@ -616,38 +619,22 @@
       filter: hue-rotate(110deg);
     }
 
-    #medsyntax-target div.square-brackets,
-    #medsyntax-target1 div.square-brackets,
-    #medsyntax-target2 div.square-brackets,
-    #medsyntax-target3 div.square-brackets,
-    #medsyntax-target4 div.square-brackets {
+    .medsyntax-target div.square-brackets {
       color: rgb(111, 111, 111);
       margin-right: 2px;
     }
 
-    #medsyntax-target div.near,
-    #medsyntax-target1 div.near,
-    #medsyntax-target2 div.near,
-    #medsyntax-target3 div.near,
-    #medsyntax-target4 div.near {
+    .medsyntax-target div.near {
       margin-left: 5px;
       color: rgb(111, 111, 111);
       font-weight: bold;
     }
 
-    #medsyntax-target div.embase,
-    #medsyntax-target1 div.embase,
-    #medsyntax-target2 div.embase,
-    #medsyntax-target3 div.embase,
-    #medsyntax-target4 div.embase {
+    .medsyntax-target div.embase {
       color: rgb(111, 111, 111);
     }
 
-    #medsyntax-target div.pubmed,
-    #medsyntax-target1 div.pubmed,
-    #medsyntax-target2 div.pubmed,
-    #medsyntax-target3 div.pubmed,
-    #medsyntax-target4 div.pubmed {
+    .medsyntax-target div.pubmed {
       color: rgb(111, 111, 111);
       margin-right: 3px;
       margin-left: 3px;
