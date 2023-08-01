@@ -8,6 +8,14 @@
 </head>
 
 <body>
+  <div id="nav-menu"><a href="https://www.medsyntax.org" target="_blank">
+      <p>Medsyntax Editor</p>
+    </a>
+    <a href="https://tedgrm.github.io/picomedsyntax/" target="_blank">
+      <p>Medsyntax PICO</p>
+    </a>
+  </div>
+  <br>
   <h3 id="medsyntax-title1">P (Population/Problem)</h3>
   <textarea id="query-input1" class="query-input" name="query-input" rows="3" cols="100"
     onkeyup='syntaxCheck("query-input1","medsyntax-target1")'
@@ -477,6 +485,17 @@
       background-color: lightgrey;
       font: icon;
       margin: 20px;
+    }
+
+    #nav-menu a {
+      display: inline-block;
+      border-style: solid;
+      border-color: whitesmoke;
+      margin-bottom: 5px;
+    }
+
+    #nav-menu a p {
+      margin: 0px;
     }
 
     #demo2 {
